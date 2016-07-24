@@ -22,7 +22,7 @@
 	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 	crossorigin="anonymous"></script>
 
-
+<script src="pomodoro.js"></script>
 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -46,13 +46,13 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-4">
-								<button class="btn btn-primary">-</button>
+								<button class="btn btn-primary" onClick="pomodoro.controls.decrementPomodoroLength();">-</button>
 							</div>
 							<div class="col-xs-4">
-								<h4>Value</h4>
+								<h4 id="pomodoroLengthDisplay">25</h4>
 							</div>
 							<div class="col-xs-4">
-								<button class="btn btn-primary">+</button>
+								<button class="btn btn-primary" onClick="pomodoro.controls.incrementPomodoroLength();">+</button>
 							</div>
 						</div>
 					</div>
@@ -63,13 +63,13 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-4">
-								<button class="btn btn-primary">-</button>
+								<button class="btn btn-primary" onClick="pomodoro.controls.decrementBreakLength();">-</button>
 							</div>
 							<div class="col-xs-4">
-								<h4>Value</h4>
+								<h4 id="pomodoroBreakDisplay">5</h4>
 							</div>
 							<div class="col-xs-4">
-								<button class="btn btn-primary">+</button>
+								<button class="btn btn-primary" onClick="pomodoro.controls.incrementBreakLength();">+</button>
 							</div>
 						</div>
 					</div>
@@ -82,8 +82,8 @@
 					<div class="col-xs-12">
 						<svg width="100%" viewBox="0 0 20 20">
 							<g>
-	    						<circle cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
-	    						<text x="50%" y="50%" text-anchor="middle" font-family="Verdana" font-size="3">00:00</text>
+	    						<circle onClick="pomodoro.controls.timerClick();" cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
+	    						<text id="timerDisplay" x="50%" y="50%" text-anchor="middle" font-family="Verdana" font-size="3">25:00</text>
 	    					</g>
 						</svg>
 					</div>
