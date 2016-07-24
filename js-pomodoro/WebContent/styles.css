@@ -8,6 +8,6 @@
 
 #svg circle {
 	stroke-dashoffset: 0;
-	transition: stroke-dasharray 1s linear;
+	transition: stroke-dashoffset 5s linear;
 	
 }

@@ -84,7 +84,13 @@ var pomodoro = (function(){
 		
 		returnerObject.clearTimerCircle = function(){
 			var circle = jQuery('#svg #progressCircle');
-			circle.css({strokeDasharray: 5});
+			var circumference = calcCircumference();
+			
+			
+			circle.css({strokeDasharray: circumference});
+			circle.css({strokeDashoffset: circumference});
+			
+			
 			
 		};
 		
