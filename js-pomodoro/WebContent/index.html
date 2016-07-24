@@ -3,6 +3,7 @@
 <head>
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="styles.css">
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -80,9 +81,9 @@
 				<!-- The Pomodoro Timer Itself -->
 				<div class="row">
 					<div class="col-xs-12">
-						<svg width="100%" viewBox="0 0 20 20">
+						<svg id="svg" width="100%" viewBox="0 0 20 20">
 							<g>
-	    						<circle onClick="pomodoro.controls.timerClick();" cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
+	    						<circle id="progressCircle" class="animated-circle" onClick="pomodoro.controls.timerClick();" cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
 	    						<text id="timerDisplay" x="50%" y="50%" text-anchor="middle" font-family="Verdana" font-size="3">25:00</text>
 	    					</g>
 						</svg>

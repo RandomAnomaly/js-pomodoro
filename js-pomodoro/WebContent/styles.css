@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+
+
+.animated-circle{
+	stroke-dasharray: 10;
+}
+
+#svg circle {
+	stroke-dashoffset: 0;
+	transition: stroke-dasharray 1s linear;
+	
+}

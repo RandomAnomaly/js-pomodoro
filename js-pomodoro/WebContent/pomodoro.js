@@ -40,6 +40,8 @@ var pomodoro = (function(){
 		
 		returnerObject.timerClick = function(){
 			console.log("CLICK");
+			display.clearTimerCircle();
+			//events here will be handled by the timer
 		};
 		
 		
@@ -69,6 +71,25 @@ var pomodoro = (function(){
 		
 		returnerObject.setTimerDisplay = function(value){
 			document.getElementById("timerDisplay").innerHTML = value + ":00";
+		};
+		
+		// helper to get the circumference of the timer
+		var calcCircumference = function(){
+			var circle = document.getElementById("progressCircle");
+			var bBox = circle.getBBox();
+			var width = bBox.width + 1; //plus 1 accounts for the border
+			var PI = 3.1415
+			return Math.floor(PI * width);
+		};
+		
+		returnerObject.clearTimerCircle = function(){
+			var circle = jQuery('#svg #progressCircle');
+			circle.css({strokeDasharray: 5});
+			
+		};
+		
+		returnerObject.clearTimer = function(){
+
 		};
 		
 		return returnerObject;
