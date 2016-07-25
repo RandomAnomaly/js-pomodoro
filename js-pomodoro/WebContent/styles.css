@@ -1,13 +1,19 @@
 @CHARSET "ISO-8859-1";
 
-
+@font-face {
+	font-family: 'digital-7';	
+	src: url(digital-7.ttf);
+}
 
 .animated-circle{
 	stroke-dasharray: 10;
 }
 
-#svg circle {
+circle {
 	stroke-dashoffset: 0;
-	transition: stroke-dashoffset 5s linear;
-	
+	transition: stroke-dashoffset 0.5s linear;	
+}
+
+#timerDisplay{
+	font-family: digital-7;
 }

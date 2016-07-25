@@ -80,11 +80,12 @@
 
 				<!-- The Pomodoro Timer Itself -->
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-xs-12" onClick="pomodoro.controls.timerClick();">
 						<svg id="svg" width="100%" viewBox="0 0 20 20">
 							<g>
-	    						<circle id="progressCircle" class="animated-circle" onClick="pomodoro.controls.timerClick();" cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
-	    						<text id="timerDisplay" x="50%" y="50%" text-anchor="middle" font-family="Verdana" font-size="3">25:00</text>
+								<circle cx="10" cy="10" r="8" stroke="silver" stroke-width="0.5" fill="none" />
+	    						<circle id="progressCircle" class="animated-circle" cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
+	    						<text id="timerDisplay" x="50%" y="50%" text-anchor="middle" font-size="3">25:00</text>
 	    					</g>
 						</svg>
 					</div>
