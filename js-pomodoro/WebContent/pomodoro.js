@@ -56,8 +56,10 @@ var pomodoro = (function(){
 		returnerObject.toggleControls = function(){
 			if(controlsActive){
 				$(':button').prop('disabled', true);
+				controlsActive = false;
 			} else{
 				$(':button').prop('disabled', false);
+				controlsActive = true;
 			}
 
 		};
@@ -121,11 +123,11 @@ var pomodoro = (function(){
 
 		var returnerObject = {};
 
-		returnerObject.beginTimer = function(pomodoroValue, breakValue){
+		returnerObject.beginTimer = function(currentValue, nextValue){
 			//disable buttons etc
-
+			pomodoro.controls.toggleControls();
 			// 1m = 60000ms
-			var ms = pomodoroValue*60000;
+			var ms = currentValue*60000;
 			var timePassed = 0;
 
 			var timer = setInterval(function(){
@@ -141,15 +143,17 @@ var pomodoro = (function(){
 				console.log("\tTotal Time: " + ms + " Current Time: " + timePassed + " Percentage: " + Math.floor((timePassed / ms)*100));
 				display.setCirclePercentage(Math.floor((timePassed / ms)*100))
 
-
 				if(minutes === 0 && seconds === 0){
 					clearInterval(timer);
+					display.clearTimerCircle();
+					returnerObject.beginTimer(nextValue, currentValue);
 				}
-
 			},1000);
-
 		};
 
+		function beginPomodoro(pomodoroValue){
+			
+		}
 
 		return returnerObject;
 	})();
