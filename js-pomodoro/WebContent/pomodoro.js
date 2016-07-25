@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 var pomodoro = (function(){
@@ -152,7 +152,7 @@ var pomodoro = (function(){
 		};
 
 		function beginPomodoro(pomodoroValue){
-			
+
 		}
 
 		return returnerObject;
