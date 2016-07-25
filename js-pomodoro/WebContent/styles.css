@@ -17,7 +17,6 @@ circle {
 #timerDisplay{
 	font-family: digital-7;
 	fill: #077CC2;
-	text-shadow: 2px 2px #459ED3;
 }
 
 html, body, .row {
