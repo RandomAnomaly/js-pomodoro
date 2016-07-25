@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 var pomodoro = (function(){
@@ -43,7 +43,13 @@ var pomodoro = (function(){
 			if(controlsActive){
 				console.log("CLICK");
 				display.clearTimerCircle();
+				//disable buttons etc
+				pomodoro.controls.toggleControls();
 				timer.beginTimer(pomodoroLength,breakLength);
+			}
+			else{
+				timer.stopTimer();
+				returnerObject.toggleControls();
 			}
 		};
 
@@ -72,6 +78,8 @@ var pomodoro = (function(){
 
 		var circleAdjustmentValue = 1.8;
 
+		var work = false;
+		
 		returnerObject.setPomodoroLengthDisplay = function(value){
 			document.getElementById("pomodoroLengthDisplay").innerHTML = value;		
 		};
@@ -115,6 +123,18 @@ var pomodoro = (function(){
 
 			circle.css({strokeDashoffset: movementValue});
 		};
+		
+		returnerObject.toggleState = function(){
+			/*
+			if(work){
+				document.getElementById("sateDisplay").innerHTML = '<i class="fa fa-coffee"></i>';
+				work=false;
+			} else{
+				document.getElementById("sateDisplay").innerHTML = '<i class="fa fa-briefcase"></i>';
+				work = true;
+			}
+			*/
+		};
 
 		return returnerObject;
 	})();
@@ -122,15 +142,20 @@ var pomodoro = (function(){
 	var timer = (function(){
 
 		var returnerObject = {};
-
+		var timer;
+		
 		returnerObject.beginTimer = function(currentValue, nextValue){
-			//disable buttons etc
-			pomodoro.controls.toggleControls();
+			//play a tone
+			playBeep();
+			//change the state
+			display.toggleState();
 			// 1m = 60000ms
 			var ms = currentValue*60000;
 			var timePassed = 0;
-
-			var timer = setInterval(function(){
+			
+			
+			
+			timer = setInterval(function(){
 				timePassed += 1000;
 				var currentTime = (ms - timePassed) / 1000
 				var minutes = Math.floor(currentTime / 60);
@@ -144,15 +169,20 @@ var pomodoro = (function(){
 				display.setCirclePercentage(Math.floor((timePassed / ms)*100))
 
 				if(minutes === 0 && seconds === 0){
-					clearInterval(timer);
-					display.clearTimerCircle();
+					returnerObject.stopTimer();
 					returnerObject.beginTimer(nextValue, currentValue);
 				}
 			},1000);
 		};
 
-		function beginPomodoro(pomodoroValue){
-			
+		returnerObject.stopTimer = function(){
+			clearInterval(timer);
+			display.clearTimerCircle();
+		};
+		
+		function playBeep(){
+			var audio = new Audio('beep1.mp3');
+			audio.play();
 		}
 
 		return returnerObject;

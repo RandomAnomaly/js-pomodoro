@@ -5,6 +5,10 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="styles.css">
 
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -34,58 +38,21 @@
 			<div class="col-md-4 col-md-push-4 col-xs-12">
 				<div class="row">
 					<div class="col-xs-12">
-						<h1>Pomodoro</h1>
+						<h1>pomodoro.</h1>
 					</div>
 				</div>
-
-				<!-- Length Controls -->
-				<div class="row">
-
-					<div class="col-xs-6">
-						<div class="row">
-							<h3>Pomodoro</h3>
-						</div>
-						<div class="row">
-							<div class="col-xs-4">
-								<button class="btn btn-primary" onClick="pomodoro.controls.decrementPomodoroLength();">-</button>
-							</div>
-							<div class="col-xs-4">
-								<h4 id="pomodoroLengthDisplay">25</h4>
-							</div>
-							<div class="col-xs-4">
-								<button class="btn btn-primary" onClick="pomodoro.controls.incrementPomodoroLength();">+</button>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-6">
-						<div class="row">
-							<h3>Rest</h3>
-						</div>
-						<div class="row">
-							<div class="col-xs-4">
-								<button class="btn btn-primary" onClick="pomodoro.controls.decrementBreakLength();">-</button>
-							</div>
-							<div class="col-xs-4">
-								<h4 id="pomodoroBreakDisplay">5</h4>
-							</div>
-							<div class="col-xs-4">
-								<button class="btn btn-primary" onClick="pomodoro.controls.incrementBreakLength();">+</button>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<!-- End Length Controls -->
 
 				<!-- The Pomodoro Timer Itself -->
 				<div class="row">
 					<div class="col-xs-12" onClick="pomodoro.controls.timerClick();">
 						<svg id="svg" width="100%" viewBox="0 0 20 20">
 							<g>
-								<circle id="outlineCircle" cx="10" cy="10" r="8" stroke="silver" stroke-width="0.5" fill="none" />
-	    						<circle id="progressCircle" class="animated-circle" cx="10" cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
-	    						<text id="timerDisplay" x="50%" y="50%" text-anchor="middle" font-size="3">25:00</text>
+								<circle id="outlineCircle" cx="10" cy="10" r="8" stroke="silver"
+								stroke-width="0.5" fill="none" />
+	    						<circle id="progressCircle" class="animated-circle" cx="10"
+								cy="10" r="8" stroke="black" stroke-width="0.5" fill="none" />
+	    						<text id="timerDisplay" x="50%" y="50%" text-anchor="middle"
+								font-size="3">25:00</text>
 	    					</g>
 						</svg>
 					</div>
@@ -93,9 +60,60 @@
 				<!--  End Pomodoro Timer -->
 
 
+				<!-- State Display -->
+					<h1 id="stateDisplay"><i class="fa fa-arrow-up" aria-hidden="true"></i></h1>
+				<!-- End State Display -->
 
+				<!-- Length Controls -->
+				<div class="row">
+
+					<div class="col-xs-6">
+						<h3>work</h3>
+						<div class="col-xs-12 col-md-4 col-md-push-8">
+							<button class="btn btn-primary btn-block"
+								onClick="pomodoro.controls.incrementPomodoroLength();">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+
+						<div class="col-xs-12 col-md-4">
+							<h4 id="pomodoroLengthDisplay">25</h4>
+						</div>
+						<div class="col-xs-12 col-md-4 col-md-pull-8">
+							<button class="btn btn-primary btn-block"
+								onClick="pomodoro.controls.decrementPomodoroLength();">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<h3>play</h3>
+						<div class="col-xs-12 col-md-4 col-md-push-8">
+							<button class="btn btn-primary btn-block"
+								onClick="pomodoro.controls.incrementBreakLength();">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+
+						<div class="col-xs-12 col-md-4">
+							<h4 id="pomodoroBreakDisplay">5</h4>
+						</div>
+						<div class="col-xs-12 col-md-4 col-md-pull-8">
+							<button class="btn btn-primary btn-block"
+								onClick="pomodoro.controls.decrementBreakLength();">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<p id="linksRow">
+					<i class="fa fa-linkedin-square"></i>|<i
+						class="fa fa-facebook-square"></i>
+				</p>
 			</div>
+			<!-- End Length Controls -->
 		</div>
 	</div>
+
 </body>
 </html>

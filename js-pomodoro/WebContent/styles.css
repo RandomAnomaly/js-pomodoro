@@ -1,7 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-
-
 @font-face {
 	font-family: 'digital-7';	
 	src: url(digital-7.ttf);
@@ -13,11 +11,54 @@
 
 circle {
 	stroke-dashoffset: 0;
-	transition: stroke-dashoffset 0.5s linear;	
+	transition: stroke-dashoffset 0.5s linear;
 }
 
 #timerDisplay{
 	font-family: digital-7;
+	fill: #077CC2;
 }
 
+html, body, .row {
+	background-color: #228BCA;
+}
 
+#outlineCircle {
+	stroke: #459ED3;
+}
+
+#progressCircle {
+	stroke: #077CC2;
+}
+
+h1{
+    color: #6EB5DF !important;
+    text-align: center;
+}
+
+h4 {
+	text-align: center;
+	color: #055787 !important;
+	
+}
+
+h3 {
+	text-align: right;
+	padding-right: 15px;
+	color: #055787 !important;
+}
+
+.btn-primary, .btn-primary:hover {
+	background-color: #077CC2 !important;
+	color: #459ED3 !important;
+}
+
+#timerDisplayBG {
+	fill: #459ED3;
+	font-family: digital-7;
+}
+
+#linksRow {
+	text-align: center;
+	font-size: 200%;
+}
