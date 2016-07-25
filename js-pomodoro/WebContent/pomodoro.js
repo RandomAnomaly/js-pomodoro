@@ -43,6 +43,8 @@ var pomodoro = (function(){
 			if(controlsActive){
 				console.log("CLICK");
 				display.clearTimerCircle();
+				//disable buttons etc
+				pomodoro.controls.toggleControls();
 				timer.beginTimer(pomodoroLength,breakLength);
 			}
 		};
@@ -124,8 +126,8 @@ var pomodoro = (function(){
 		var returnerObject = {};
 
 		returnerObject.beginTimer = function(currentValue, nextValue){
-			//disable buttons etc
-			pomodoro.controls.toggleControls();
+			//play a tone
+			playBeep();
 			// 1m = 60000ms
 			var ms = currentValue*60000;
 			var timePassed = 0;
@@ -151,8 +153,9 @@ var pomodoro = (function(){
 			},1000);
 		};
 
-		function beginPomodoro(pomodoroValue){
-
+		function playBeep(){
+			var audio = new Audio('beep1.mp3');
+			audio.play();
 		}
 
 		return returnerObject;
