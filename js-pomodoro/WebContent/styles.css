@@ -21,3 +21,37 @@ circle {
 }
 
 
+html, body, .row {
+	background-color: #228BCA;
+}
+
+#outlineCircle {
+	stroke: #077CC2;
+}
+
+#progressCircle {
+	stroke: #055787;
+}
+
+h1{
+    color: #6EB5DF !important;
+    text-align: center;
+}
+
+#timerDisplay {
+	fill: #055787;
+}
+
+h3, h4 {
+	color: #459ED3 !important;
+}
+
+h3 {
+	text-align: right;
+	padding-right: 58px;
+}
+
+.btn-primary, .btn-primary:hover {
+	background-color: #077CC2 !important;
+	color: #459ED3 !important;
+}
