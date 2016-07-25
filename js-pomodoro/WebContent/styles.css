@@ -57,3 +57,8 @@ h3 {
 	fill: #459ED3;
 	font-family: digital-7;
 }
+
+#linksRow {
+	text-align: center;
+	font-size: 200%;
+}
