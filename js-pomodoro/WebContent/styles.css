@@ -13,7 +13,8 @@
 
 circle {
 	stroke-dashoffset: 0;
-	transition: stroke-dashoffset 0.5s linear;	
+	transition: stroke-dashoffset 0.5s linear;
+		
 }
 
 #timerDisplay{
@@ -40,6 +41,7 @@ h1{
 
 #timerDisplay {
 	fill: #055787;
+	
 }
 
 h3, h4 {
