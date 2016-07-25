@@ -17,6 +17,8 @@ var pomodoro = (function(){
 		var pomodoroLength = 25;
 		var breakLength = 5;
 
+		var controlsActive = true;
+
 		returnerObject.incrementPomodoroLength = function(){
 			pomodoroLength++;
 			updateDisplayContent();
@@ -38,10 +40,11 @@ var pomodoro = (function(){
 		};
 
 		returnerObject.timerClick = function(){
-			console.log("CLICK");
-			display.clearTimerCircle();
-			timer.beginTimer(1,100);
-			//TODO events here will be handled by the timer
+			if(controlsActive){
+				console.log("CLICK");
+				display.clearTimerCircle();
+				timer.beginTimer(pomodoroLength,breakLength);
+			}
 		};
 
 		var updateDisplayContent = function(){
@@ -50,7 +53,14 @@ var pomodoro = (function(){
 			display.setTimerDisplay(pomodoroLength + ":00");
 		};
 
-		
+		returnerObject.toggleControls = function(){
+			if(controlsActive){
+				$(':button').prop('disabled', true);
+			} else{
+				$(':button').prop('disabled', false);
+			}
+
+		};
 
 		return returnerObject;
 	})();
@@ -108,45 +118,35 @@ var pomodoro = (function(){
 	})();
 
 	var timer = (function(){
-		
+
 		var returnerObject = {};
 
 		returnerObject.beginTimer = function(pomodoroValue, breakValue){
 			//disable buttons etc
-			
+
 			// 1m = 60000ms
 			var ms = pomodoroValue*60000;
 			var timePassed = 0;
-			
+
 			var timer = setInterval(function(){
 				timePassed += 1000;
 				var currentTime = (ms - timePassed) / 1000
 				var minutes = Math.floor(currentTime / 60);
 				var seconds = currentTime % 60;
 				var circleFill = Math.floor((ms / timePassed) * 100)
-				
+
 				display.setTimerDisplay((minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
 				console.log(minutes + ":" + seconds);
-				
+
 				console.log("\tTotal Time: " + ms + " Current Time: " + timePassed + " Percentage: " + Math.floor((timePassed / ms)*100));
 				display.setCirclePercentage(Math.floor((timePassed / ms)*100))
-				
-				
-				
-				
+
+
 				if(minutes === 0 && seconds === 0){
 					clearInterval(timer);
 				}
-				
+
 			},1000);
-			
-			
-			
-			/**
-			window.setTimeout(function(){
-				display.setCirclePercentage(75);
-			}, 5000);
-			 */
 
 		};
 
