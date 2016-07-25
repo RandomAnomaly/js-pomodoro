@@ -48,9 +48,13 @@ h3, h4 {
 	color: #459ED3 !important;
 }
 
+h4 {
+	text-align: center;
+}
+
 h3 {
 	text-align: right;
-	padding-right: 58px;
+	padding-right: 15px;
 }
 
 .btn-primary, .btn-primary:hover {
