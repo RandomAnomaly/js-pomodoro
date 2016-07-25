@@ -1,5 +1,7 @@
 @CHARSET "ISO-8859-1";
 
+
+
 @font-face {
 	font-family: 'digital-7';	
 	src: url(digital-7.ttf);
@@ -17,3 +19,5 @@ circle {
 #timerDisplay{
 	font-family: digital-7;
 }
+
+
