@@ -2,12 +2,12 @@
  *
  */
 
-var pomodoro = (function(){
+ var pomodoro = (function(){
 
-	var returnerObject = {};
+ 	var returnerObject = {};
 
-	var defaultBreak = 5;
-	var defaultPomodoro = 25;
+ 	var defaultBreak = 5;
+ 	var defaultPomodoro = 25;
 
 
 	// Object representing actions often performed by page controls
@@ -25,8 +25,10 @@ var pomodoro = (function(){
 		};
 
 		returnerObject.decrementPomodoroLength = function(){
-			pomodoroLength--;
-			updateDisplayContent();
+			if(pomodoroLength > 1){
+				pomodoroLength--;
+				updateDisplayContent();
+			}
 		};
 
 		returnerObject.incrementBreakLength = function(){
@@ -35,8 +37,10 @@ var pomodoro = (function(){
 		};
 
 		returnerObject.decrementBreakLength = function(){
-			breakLength--;
-			updateDisplayContent();
+			if(breakLength > 1){
+				breakLength--;
+				updateDisplayContent();
+			}
 		};
 
 		returnerObject.timerClick = function(){
